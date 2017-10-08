@@ -1,4 +1,4 @@
-In a [previous blog](Echobot.html)
+In a [previous blog](../Echobot.html)
 I described a simple echo bot, that echoes back anything you say to it. This time
 I will talk about a bot that generates traffic for the chat server, that can
 be used for load-testing both the chat server as well as any chat clients
