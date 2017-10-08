@@ -4,7 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Software architect at CCP Games. Work on the launcher, 
+Wine support, graphics engine and other low level stuff 
+for EVE Online.
 
 ### More Information
 
