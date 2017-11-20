@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "Tag: erlang"
-tag: erlang
+title: "Tag: go"
+tag: go
 robots: noindex
 ---
