@@ -1,3 +1,6 @@
+---
+tags: erlang
+---
 I'm continuing my experiments with Erlang - this time trying out
 *gen_server* with a simple key/value store with a twist - the values
 have an expiration date.

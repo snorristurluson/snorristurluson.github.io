@@ -1,3 +1,6 @@
+---
+tags: python asyncio xmpp
+---
 In a [previous blog](../Echobot)
 I described a simple echo bot, that echoes back anything you say to it. This time
 I will talk about a bot that generates traffic for the chat server, that can

@@ -1,3 +1,6 @@
+---
+tags: erlang mnesia
+---
 I'm still working on my 
 [expiring records](https://github.com/snorristurluson/erl-expiring-records)
 module in Erlang (see [here](https://ccpsnorlax.blogspot.is/2017/10/mnesia.html) 

@@ -1,3 +1,6 @@
+---
+tags: erlang json
+---
 I've been digging deeper into my experiments with Erlang and have
 improved the JSON parser I discussed in a
 [previous blog](https://ccpsnorlax.blogspot.is/2017/09/simple-json-parsing-in-erlang.html).
