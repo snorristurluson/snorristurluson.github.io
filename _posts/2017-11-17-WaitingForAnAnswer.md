@@ -1,3 +1,7 @@
+---
+title: Large Scale Ambitions
+tags: elixir go c++ json exsim
+---
 I want to describe my first iteration of **exsim**, the core server for
 the large scale simulation I described in my last 
 [blog post](https://ccpsnorlax.blogspot.is/2017/11/large-scale-ambitions.html).
