@@ -13,7 +13,7 @@ same framework as the *EchoBot* - refer to the previous blog if you are interest
 in the details. The source lives on GitHub: [https://github.com/snorristurluson/xmpp-chatbot]()
 
 ## Configure the server
-In an [earlier blog](2017-10-13-Expiring-Records.md) 
+In an [earlier blog](https://ccpsnorlax.blogspot.is/2017/09/working-with-xmpp-in-python.html) 
 I described the setup of Prosody as the chat server to run against. Before we can connect bots 
 to the server we have to make sure they can log in, either by creating accounts for them:
 
