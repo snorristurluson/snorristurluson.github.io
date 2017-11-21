@@ -1,3 +1,7 @@
+---
+title: Elixir vs. Go
+tags: elixir go exsim
+---
 I knew when I set out on my [exsim project](../LargeScaleAmbitions)
 that it was ambitious - mixing three programming languages in one
 project, two of which were new to me. Elixir is very promising for handling lots of connections, and in general
