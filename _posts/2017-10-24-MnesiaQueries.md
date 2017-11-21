@@ -5,11 +5,11 @@ tags: erlang mnesia
 I've added search and trim to my
 [expiring records](https://github.com/snorristurluson/erl-expiring-records)
 module in Erlang. This started out as an 
-[in-memory](https://ccpsnorlax.blogspot.is/2017/10/expiring-records-in-erlang.html) 
+[in-memory](2017-10-13-Expiring-Records.md) 
 key/value store, that I then migrated over to
-[using Mnesia](https://ccpsnorlax.blogspot.is/2017/10/mnesia.html)
+[using Mnesia](2017-10-15-Mnesia.md)
 and eventually to a
-[replicated Mnesia](https://ccpsnorlax.blogspot.is/2017/10/replicated-mnesia.html)
+[replicated Mnesia](2017-10-16-Replicated-Mnesia.md)
 table.
 
 The *fetch/1* function is already doing a simple query, with 

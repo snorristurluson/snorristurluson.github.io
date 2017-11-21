@@ -3,8 +3,8 @@ tags: erlang mnesia
 ---
 I'm still working on my 
 [expiring records](https://github.com/snorristurluson/erl-expiring-records)
-module in Erlang (see [here](https://ccpsnorlax.blogspot.is/2017/10/mnesia.html) 
-and [here](https://ccpsnorlax.blogspot.is/2017/10/expiring-records-in-erlang.html) 
+module in Erlang (see [here](2017-10-15-Mnesia.md) 
+and [here](2017-10-13-Expiring-Records.md) 
 for my previous posts on this).
 
 Previously, I had started using Mnesia, but only a RAM based table. I've now

@@ -4,7 +4,7 @@ tags: elixir exsim
 ---
 I want to describe my first iteration of **exsim**, the core server for
 the large scale simulation I described in my last 
-[blog post](https://ccpsnorlax.blogspot.is/2017/11/large-scale-ambitions.html).
+[blog post](2017-11-10-LargeScaleAmbitions.md).
 
 A **Listener** module opens a socket for listening to incoming connections.
 Once a connection is made, a process is spawned for handling the login and
