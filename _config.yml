@@ -6,7 +6,7 @@
 name: Snorri Sturluson
 
 # Short bio or description (displayed in the header)
-description: Software architect at CCP Games working on EVE Online.
+description: Former Software Architect at CCP Games - worked on EVE Online.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://snorristurluson.github.io/images/profilepic.jpg
@@ -26,7 +26,7 @@ footer-links:
   linkedin:
   pinterest:
   rss: enable
-  twitter: CCP_Snorlax
+  twitter: SnorriSturluso7
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: 106090021647823970075
