@@ -87,3 +87,6 @@ size_t ShaderLib::GetPixelShaderSize() {
 The shaders are built before the engine is built so the files included are always ready when
 the ShaderLib files are built, ensuring that the latest shaders are always included in the
 engine.
+
+This setup allows me to write simple samples and tests that don't have dependencies on
+the shader files - very convenient.
