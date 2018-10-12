@@ -66,7 +66,8 @@ void Renderer::setupDebugCallback() {
     if (CreateDebugUtilsMessengerEXT(m_instance, &createInfo, nullptr, &m_callback) != VK_SUCCESS) {
         throw std::runtime_error("failed to set up debug callback!");
     }
-}```
+}
+```
 
 The DebugMessenger simply counts the messages it gets of each severity, as well as
 outputting the message to stderr.
