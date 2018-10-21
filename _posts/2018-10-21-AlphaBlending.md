@@ -11,7 +11,7 @@ Why do it like this? For my purposes, the biggest benefit
 is that I can represent 4 different blend modes with one blend setting in the graphics
 pipeline. For more detail, see
 [Shawn Hargreaves' blog](https://blogs.msdn.microsoft.com/shawnhar/2009/11/06/premultiplied-alpha/)
-explaining the benefits of pre-multiplied alpha 
+explaining the benefits of pre-multiplied alpha.
 
 This approach allows me to render the following image with one draw command:
 
