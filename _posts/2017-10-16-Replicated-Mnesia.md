@@ -21,7 +21,7 @@ to the arguments to *mnesia:create_table* would be enough. This resulted in an
 error:
 ```erlang
         {app_test,init_per_testcase,
-            {{badmatch,
+            {badmatch,
                  {aborted,
                      {bad_type,expiring_records,disc_copies,nonode@nohost}}},
         ...
