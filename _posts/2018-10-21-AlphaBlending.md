@@ -18,7 +18,8 @@ This approach allows me to render the following image with one draw command:
 ![Blend modes sample](/images/BlendModesSample.png)
 
 Top left is no blending, top right is conventional alpha blending, bottom left is
-additive blending and bottom right is 2x additive blending.
+additive blending and bottom right is 2x additive blending. Each quadrant draws
+4 sprites, with a white circle texture colored in 4 different colors.
 
 The source for this is in GitHub: https://github.com/snorristurluson/vulkan-sprites 
 
