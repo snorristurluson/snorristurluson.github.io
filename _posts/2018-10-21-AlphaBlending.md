@@ -119,4 +119,4 @@ void main() {
 ```
 
 Once the shaders are correctly set up, switching blend modes does not require changing
-anything in the graphics pipeline.
+anything in the graphics pipeline. Pretty sweet!
