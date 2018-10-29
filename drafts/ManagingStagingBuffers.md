@@ -1,0 +1,1 @@
+Talk about lifetime of staging buffers, using DestroyLater
