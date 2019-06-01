@@ -61,10 +61,6 @@ NUMBER          : DIGIT+ ('.' DIGIT+)?;
 DIGIT           : ('0'..'9');
 WS              : [ \r\n\t]+ -> skip;
 ```
-In IntelliJ, we can preview the handling of this grammar - for example, the 
-expression _(1+2)*3_ produces the following parse tree:
-
-![Parse tree](/images/parseTree_simpleExpression.png =400x)
 
 ## Generating code
 In order to do something with the expression, beyond looking at a parse tree in IntelliJ,
