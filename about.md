@@ -4,7 +4,8 @@ title: About
 permalink: /about/
 ---
 
-I am a former software architect at CCP Games. Worked on the launcher, Wine 
+I am a Senior Software Developer at WuxiNextCode, working on GOR - a genomic database engine.
+Prior to that I was a software architect at CCP Games. Worked on the launcher, Wine 
 support, graphics engine and other random stuff for EVE Online, 
 usually low level. This blog details some interesting things I've run 
 into at work, as well as new things I'm trying out in my spare time. 
