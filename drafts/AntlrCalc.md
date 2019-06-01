@@ -16,7 +16,7 @@ Anyway, Antlr is a joy to work with, especially with the
 In order to get to grips with using it, I implemented a simple expression calculator
 in Java.
 
-##AntlrCalc
+## AntlrCalc
 As always, [the source code](https://github.com/snorristurluson/AntlrCalc) is up on GitHub.
 
 The calculator should handle simple expressions, such as:
@@ -130,7 +130,6 @@ public class CalcEvaluator extends CalcBaseVisitor<Double> {
             } else if(op == CalcParser.MINUS) {
                 accumulator -= nextTermValue;
             }
-
         }
         return accumulator;
     }
@@ -148,7 +147,6 @@ public class CalcEvaluator extends CalcBaseVisitor<Double> {
             } else if(op == CalcParser.DIV) {
                 accumulator /= nextTermValue;
             }
-
         }
         return accumulator;
     }
