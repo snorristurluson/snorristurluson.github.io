@@ -38,9 +38,6 @@ Finally, it should handle functions:
 The Antlr grammar for this is quite simple:
 ```antlrv4
 grammar Calc;
-@header {
-package calc;
-}
 
 expression      : term ((PLUS | MINUS) term)* ;
 term            : factor ((TIMES | DIV) factor)* ;
