@@ -32,7 +32,7 @@ First off, we need to add the component to the *TopDownCharacter* class:
 ### Use the component for path finding
 The next step is to change the *MoveToHitLocation* blueprint in the *TopDownController*:
 
-[MoveToHitLocation](https://drive.google.com/file/d/1mZ3WVPpze2x2MHQb836u1AZ37_xf8BaS/view?usp=sharing)
+![MoveToHitLocation](/images/ClickToMove/MoveToHitLocation.png)
 
 Now when you run the project, it will use the navigation component rather than the Simple Move To Location method
 of the AI library from Unreal.
@@ -70,41 +70,41 @@ in world space.
 ```cpp
 TArray<FVector> UNavigatorComponent::FindPathToLocation(FVector Location)
 {
-	TArray<FVector> Result;
-	FNavPathSharedPtr Path;
-	UNavigationSystemV1* NavSys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+  TArray<FVector> Result;
+  FNavPathSharedPtr Path;
+  UNavigationSystemV1* NavSys = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
 
-	ACharacter* Character = Cast<ACharacter>(GetOwner());
-	if (NavSys && Character)
-	{
-		const ANavigationData* NavData = NavSys->GetNavDataForProps(Character->GetNavAgentPropertiesRef(), Character->GetNavAgentLocation());
-		if (NavData)
-		{
-			const FSharedConstNavQueryFilter NavFilter = UNavigationQueryFilter::GetQueryFilter(*NavData, this, nullptr);
-			FPathFindingQuery Query = FPathFindingQuery(*Character, *NavData, Character->GetNavAgentLocation(), Location, NavFilter);
-			Query.SetAllowPartialPaths(true);
+  ACharacter* Character = Cast<ACharacter>(GetOwner());
+  if (NavSys && Character)
+  {
+    const ANavigationData* NavData = NavSys->GetNavDataForProps(Character->GetNavAgentPropertiesRef(), Character->GetNavAgentLocation());
+    if (NavData)
+    {
+      const FSharedConstNavQueryFilter NavFilter = UNavigationQueryFilter::GetQueryFilter(*NavData, this, nullptr);
+      FPathFindingQuery Query = FPathFindingQuery(*Character, *NavData, Character->GetNavAgentLocation(), Location, NavFilter);
+      Query.SetAllowPartialPaths(true);
 
-			FPathFindingResult PathResult = NavSys->FindPathSync(Query);
-			if (PathResult.Result != ENavigationQueryResult::Error)
-			{
-				if (PathResult.IsSuccessful() && PathResult.Path.IsValid())
-				{
-					PathResult.Path->EnableRecalculationOnInvalidation(true);
-					Path = PathResult.Path;
-				}
-			}
-		}
+      FPathFindingResult PathResult = NavSys->FindPathSync(Query);
+      if (PathResult.Result != ENavigationQueryResult::Error)
+      {
+        if (PathResult.IsSuccessful() && PathResult.Path.IsValid())
+        {
+          PathResult.Path->EnableRecalculationOnInvalidation(true);
+          Path = PathResult.Path;
+        }
+      }
+    }
 
-		if (Path)
-		{
-			const TArray<FNavPathPoint>& Points = Path->GetPathPoints();
-			for (int PointIndex = 0; PointIndex < Points.Num(); ++PointIndex)
-			{
-				Result.Add(Points[PointIndex].Location);
-			}
-		}
-	}
-	return Result;
+    if (Path)
+    {
+      const TArray<FNavPathPoint>& Points = Path->GetPathPoints();
+      for (int PointIndex = 0; PointIndex < Points.Num(); ++PointIndex)
+      {
+        Result.Add(Points[PointIndex].Location);
+      }
+    }
+  }
+  return Result;
 }
 ```
 ## Navigation
@@ -117,16 +117,16 @@ a more natural movement.
 ```cpp
 void UNavigatorComponent::Navigate(const TArray<FVector>& Points)
 {
-	Spline->ClearSplinePoints();
-	for (FVector Point : Points)
-	{
-		Spline->AddSplineWorldPoint(Point);
-		Goal = Point;
-	}
-	Spline->Duration = 1.0f;
-	CurrentTime = 0.0f;
-	NextPoint = Spline->GetLocationAtTime(CurrentTime, ESplineCoordinateSpace::World);
-	Length = Spline->GetSplineLength();
+  Spline->ClearSplinePoints();
+  for (FVector Point : Points)
+  {
+    Spline->AddSplineWorldPoint(Point);
+    Goal = Point;
+  }
+  Spline->Duration = 1.0f;
+  CurrentTime = 0.0f;
+  NextPoint = Spline->GetLocationAtTime(CurrentTime, ESplineCoordinateSpace::World);
+  Length = Spline->GetSplineLength();
 }
 ```
 
@@ -141,31 +141,31 @@ distance between the points.
 ```cpp
 void UNavigatorComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+  Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if (Spline->GetNumberOfSplinePoints() == 0)
-	{
-		return;
-	}
+  if (Spline->GetNumberOfSplinePoints() == 0)
+  {
+    return;
+  }
 
-	const FVector ActorLocation = GetOwner()->GetActorLocation();
-	DistanceToGoal = (Goal - ActorLocation).Size2D();
-	if (DistanceToGoal <= GoalDistanceThreshold)
-	{
-		Spline->ClearSplinePoints();
-		return;
-	}
+  const FVector ActorLocation = GetOwner()->GetActorLocation();
+  DistanceToGoal = (Goal - ActorLocation).Size2D();
+  if (DistanceToGoal <= GoalDistanceThreshold)
+  {
+    Spline->ClearSplinePoints();
+    return;
+  }
 
-	const float DistanceToNextPoint = (NextPoint - ActorLocation).Size2D();
-	if (DistanceToNextPoint <= DistanceThreshold)
-	{
-		CurrentTime += 1.0f / Length * DistanceBetweenPoints;
-		NextPoint = Spline->GetLocationAtTime(CurrentTime, ESplineCoordinateSpace::World);
-	}
+  const float DistanceToNextPoint = (NextPoint - ActorLocation).Size2D();
+  if (DistanceToNextPoint <= DistanceThreshold)
+  {
+    CurrentTime += 1.0f / Length * DistanceBetweenPoints;
+    NextPoint = Spline->GetLocationAtTime(CurrentTime, ESplineCoordinateSpace::World);
+  }
 
-	const FVector Direction = (NextPoint - ActorLocation).GetSafeNormal2D();
-	const FVector ActorDirection = GetOwner()->GetActorRotation().Vector().GetSafeNormal2D();
-	const float Scale = FMath::Clamp(FVector::DotProduct(ActorDirection, Direction), 0.5f, 1.0f);
-	Cast<APawn>(GetOwner())->AddMovementInput(Direction, Scale);
+  const FVector Direction = (NextPoint - ActorLocation).GetSafeNormal2D();
+  const FVector ActorDirection = GetOwner()->GetActorRotation().Vector().GetSafeNormal2D();
+  const float Scale = FMath::Clamp(FVector::DotProduct(ActorDirection, Direction), 0.5f, 1.0f);
+  Cast<APawn>(GetOwner())->AddMovementInput(Direction, Scale);
 }
 ```
