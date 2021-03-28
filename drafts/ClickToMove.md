@@ -15,8 +15,8 @@ the navigation mesh we use to find paths in the map.
 
 ## The NavigatorComponent
 The Navigator component has two main functions:
-* FindPathToLocation - it takes in the location and returns an array of waypoints that get you there
-* Navigate - it takes in an array of points, as returned by the FindPathToLocation function above
+* *FindPathToLocation* - it takes in the location and returns an array of waypoints that get you there
+* *Navigate* - it takes in an array of points, as returned by the *FindPathToLocation* function above
 
 Having these functions separate offers more flexibility, for example allowing a preview of the path before
 committing to it.
@@ -33,6 +33,7 @@ First off, we need to add the component to the *TopDownCharacter* class:
 The next step is to change the *MoveToHitLocation* blueprint in the *TopDownController*:
 
 ![MoveToHitLocation](/images/ClickToMove/MoveToHitLocation.png)
+[MoveToHitLocation](/images/ClickToMove/MoveToHitLocation.png)
 
 Now when you run the project, it will use the navigation component rather than the Simple Move To Location method
 of the AI library from Unreal.
@@ -43,6 +44,8 @@ bring up the console by pressing the backtick (`) and type in
 ![Show splines](/images/ClickToMove/DebugDraw.png)
 
 to show the spline being followed.
+
+![Spline](/images/ClickToMove/Spline.png)
 
 ## Networked game
 By default, navigation is only done on the server. You can enable client-side navigation in the project settings,
@@ -57,11 +60,13 @@ notify. This event calls the *Find Path to Location* method on the navigation co
 to *Navigation Points*.
 
 ![FindPath](/images/ClickToMove/FindPath.png)
+[FindPath](/images/ClickToMove/FindPath.png)
 
 When those points are replicated over to the client, the points are passed to the *Navigate* of the component
 and it starts following those points towards the target.
 
-![OnRepNavigationPoints](/images/ClickToMove/OnRepNavigationPoints.png)
+![OnRep_NavigationPoints](/images/ClickToMove/OnRepNavigationPoints.png)
+[OnRep_NavigationPoints](/images/ClickToMove/OnRepNavigationPoints.png)
 
 ## Finding the path
 The navigation system does all the work of finding the path. We return the results simply as an array of points
@@ -169,3 +174,16 @@ void UNavigatorComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
   Cast<APawn>(GetOwner())->AddMovementInput(Direction, Scale);
 }
 ```
+Note that this code runs on the client, so it is easy to interrupt the path following when the player
+presses a movement button. We could also add visualization of the spline, beyond the debug rendering.
+I'll explore that in a future post.
+
+## Get the code
+The code for this project lives on GitHub:
+
+[https://github.com/snorristurluson/BasicClickToMove](https://github.com/snorristurluson/BasicClickToMove)
+
+You can download an executable demo for Windows here: 
+[Demo](https://drive.google.com/file/d/1qVTMpRCFZMIr8HJu5DFt5bi0wq2Qknei/view?usp=sharing)
+
+Feedback is always appreciated!
