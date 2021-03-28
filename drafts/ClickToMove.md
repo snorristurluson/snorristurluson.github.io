@@ -22,7 +22,7 @@ Having these functions separate offers more flexibility, for example allowing a 
 committing to it.
 
 We'll look at the component itself in more detail later - let's first look at the changes to the basic Top Down
-project I made to use my plugin.
+project I made to use my component.
 
 ### Add the component to the character
 First off, we need to add the component to the *TopDownCharacter* class:
@@ -32,7 +32,7 @@ First off, we need to add the component to the *TopDownCharacter* class:
 ### Use the component for path finding
 The next step is to change the *MoveToHitLocation* blueprint in the *TopDownController*:
 
-![MoveToHitLocation](/images/ClickToMove/MoveToHitLocation.png)
+![MoveToHitLocation](https://drive.google.com/file/d/1mZ3WVPpze2x2MHQb836u1AZ37_xf8BaS/view?usp=sharing)
 
 Now when you run the project, it will use the navigation component rather than the Simple Move To Location method
 of the AI library from Unreal.
