@@ -1,5 +1,5 @@
 ---
-title: Visualize paths in Unreal
+title: Visualizing paths in Unreal
 tags: ue4 c++
 ---
 I'm continuing my experiments with the Unreal Engine navigation system, this time around I'm working on
@@ -48,7 +48,7 @@ protected:
 };
 ```
 
-The path visualizer component creates instances of the nested components.
+The path visualizer component constructor creates instances of the nested components.
 
 ```cpp
 UPathVisualizerComponent::UPathVisualizerComponent() :
@@ -59,7 +59,7 @@ UPathVisualizerComponent::UPathVisualizerComponent() :
   Mesh->NumCustomDataFloats = 1;
 }
 ```
-
+### Set up the spline
 The spline gives us an easy way to get locations along the path. I set the spline point type
 to *CurveClamped* - this gives us some smoothing of the curve along the points but avoids the
 strange loops that can occur in sharp turns.
@@ -78,6 +78,7 @@ void UPathVisualizerComponent::SetupSpline(const TArray<FVector>& Waypoints)
   Path->UpdateSpline();
 }
 ```
+### Set up the mesh
 The instanced static mesh component is perfect for rendering multiple instances of the same mesh 
 multiple times. The loop below adds an instance on points along the spline, with the given distance
 between points. As well as adding an instance, I set a custom data value for each instance to the
