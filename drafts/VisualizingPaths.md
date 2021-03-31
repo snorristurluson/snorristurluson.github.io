@@ -7,6 +7,12 @@ visualizing the path the character will follow. In my [last blog post](/ClickToM
 a component for finding and following paths - in this post I will talk about a component for showing
 the path.
 
+Here is an example of how this looks, using a simple sphere for the mesh, with a default material:
+
+![VisualizingPath](/images/VisualizingPaths/VisualizingPath.png)
+
+[VisualizingPath](/images/VisualizingPaths/VisualizingPath.png)
+
 ## PathVisualizer component
 The path visualizer component shows the path as a series of dots following the path. This is easy to
 achieve with the help of a
@@ -103,21 +109,19 @@ void UPathVisualizerComponent::SetWaypoints(const TArray<FVector>& Waypoints)
   SetupMesh();
 }
 ```
-Here is an example of how this looks, using a simple sphere for the mesh, with a default material:
-
-![VisualizingPath](/images/VisualizingPaths/VisualizingPath.png)
-[VisualizingPath](/images/VisualizingPaths/VisualizingPath.png)
-
 ## Animating the path
 Let's take a look how to animate the path, using a material that uses the custom data for each instance.
 By using a sine wave based on Time that is offset with that value, we get a pulse that moves along the path:
 
 ![AnimatedPath](/images/VisualizingPaths/AnimatedPath.gif)
+
 [AnimatedPath](/images/VisualizingPaths/AnimatedPath.gif)
 
 Here is the material blueprint:
 
 ![Material](/images/VisualizingPaths/Material.png)
+
+[Material](/images/VisualizingPaths/Material.png)
 
 The material is quite simple, and uses opacity to pulsate each marker over time. There is a material
 parameter that scales the custom data value that effectively controls the speed of the wave over the
