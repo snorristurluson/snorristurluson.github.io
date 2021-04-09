@@ -2,6 +2,11 @@
 title: Custom widgets in Unreal
 tags: ue4 c++
 ---
+The UI system in Unreal, UMG, offers a fair number of widgets and allows you to do quite a lot in Blueprints.
+There may still be times, however, when you need to create custom widgets to fill some gap in the provided
+feature set, or for performance reasons. In this blog post I will go through the basics of creating a
+widget with custom rendering - in the near future I will follow up with more advanced issues.
+
 There are two classes involved in UMG widgets:
 * A UWidget-derived class, that you interact with in the editor
 * An SCompoundWidget class, that handles the low-level functionality and rendering
