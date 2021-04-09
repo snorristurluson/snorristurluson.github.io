@@ -1,5 +1,7 @@
-## Custom widgets in Unreal
-
+---
+title: Custom widgets in Unreal
+tags: ue4 c++
+---
 There are two classes involved in UMG widgets:
 * A UWidget-derived class, that you interact with in the editor
 * An SCompoundWidget class, that handles the low-level functionality and rendering
@@ -74,7 +76,7 @@ used around the *Construct* function as it can end up having a very complex expr
 compiler may spend a lot of time trying to optimize. These macros turn optimizations off and on again.
 
 ### Passing properties
-In order to have the widget draw a slice, we need to add sem properties to determine its appearance.
+In order to have the widget draw a slice, we need to add some properties to determine its appearance.
 First, we add *Brush*, *Angle* and *ArcSize* to UMG widget:
 ```cpp
   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Appearance")
@@ -214,7 +216,7 @@ int32 SSlateSlice::OnPaint(const FPaintArgs& Args, const FGeometry& AllottedGeom
 
 This now allows us to render slices in varying sizes and colors:
 
-[SeveralSlices](/images/CustomWidget/SeveralSlices.png)
+![SeveralSlices](/images/CustomWidget/SeveralSlices.png)
 
 ### Updating properties
 For the editor to work properly we need to update the properties in the Slate widget whenever they change in
