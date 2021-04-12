@@ -16,6 +16,6 @@ I've also worked at EA Games, mostly on Sims titles, and Midway Games West (form
 as well as another game studio I co-founded (Lightspeed Games).
 
 This blog details some interesting things I've run into at work, as well as new things I'm trying out 
-in my spare time. At Arctic Theory I'm working Unreal Engine 4, both in C++ and Blueprints. 
+in my spare time. At Arctic Theory I'm working in Unreal Engine 4, both in C++ and Blueprints. 
 Before that I played around with Vulkan, and tried some new programming languages - Erlang/Elixir, Go, 
 Swift whereas most of my work in the past is in C++ and Python.
