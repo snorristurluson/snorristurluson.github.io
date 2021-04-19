@@ -1,6 +1,6 @@
 ---
 title: Custom widgets in Unreal
-tags: ue4 c++
+tags: ue4 c++ widget
 ---
 The UI system in Unreal, UMG, offers a fair number of widgets and allows you to do quite a lot in Blueprints.
 There may still be times, however, when you need to create custom widgets to fill some gap in the provided
